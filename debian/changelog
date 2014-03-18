@@ -1,3 +1,10 @@
+nginx (1.5.11-1.1~aroth~ppa1) saucy; urgency=low
+
+  * add kerberos/gssapi/spnego module from 
+    https://github.com/stnoonan/spnego-http-auth-nginx-module
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 18 Mar 2014 07:28:54 +0100
+
 nginx (1.5.11-1+saucy0) saucy; urgency=medium
 
   * New upstream release (1.5.11)

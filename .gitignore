@@ -1,0 +1,13 @@
+/.pc/
+/auto/
+/conf/
+/contrib/
+/html/
+/man/
+/src/
+/CHANGES
+/CHANGES.ru
+/LICENSE
+/README
+/build*
+/config*

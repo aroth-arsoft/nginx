@@ -1,3 +1,16 @@
+nginx (1.5.12-1+saucy0) saucy; urgency=medium
+
+  * New upstream release (1.5.12)
+  * Sync with Debian
+
+ -- Thomas Ward <teward@ubuntu.com>  Sun, 30 Mar 2014 09:39:32 -0400
+
+nginx (1.5.12-1~exp1) experimental; urgency=medium
+
+  * Release 1.5.12-1~exp1 to experimental
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Fri, 28 Mar 2014 14:04:48 +0200
+
 nginx (1.5.11-1.1~aroth~ppa1) saucy; urgency=low
 
   * add kerberos/gssapi/spnego module from 
@@ -13,6 +26,29 @@ nginx (1.5.11-1+saucy0) saucy; urgency=medium
       due to this change already being applied in the release.
 
  -- Thomas Ward <teward@ubuntu.com>  Tue, 11 Mar 2014 20:10:01 -0400
+
+nginx (1.4.7-1) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * New upstream release. (Closes: #742059)
+    + Fixes pottential arbitrary code execution (CVE-2014-0133)
+      Debian build was not vulnerable since it was compiled
+      with the --with-debug configure option.
+  * debian/modules/nginx-http-push:
+    + Update to v0.711 (Closes: #732251)
+  * debian/modules/headers-more-nginx-module:
+    + Update to v0.25, containing several bugfixes.
+  * debian/modules/nginx-echo:
+    + Update to v0.51, containing several bugfixes.
+  * debian/modules/nginx-dav-ext-module:
+    + Update to v0.0.3, containing some uri encoding fixes.
+  * debian/modules/ngx_http_substitutions_filter_module:
+    + Update to v0.6.4, containing some enhancements.
+  * debian/modules/nginx-auth-pam:
+    + Update to v1.3.
+      This version contains our downstream patch (See: #721702)
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Tue, 18 Mar 2014 22:03:47 +0200
 
 nginx (1.4.6-1) unstable; urgency=medium
 

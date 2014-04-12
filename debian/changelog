@@ -1,3 +1,9 @@
+nginx (1.5.12-1.1~aroth~ppa1) saucy; urgency=low
+
+  * take over upstream release 1.5.12
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 12 Apr 2014 12:20:26 +0200
+
 nginx (1.5.12-1+saucy0) saucy; urgency=medium
 
   * New upstream release (1.5.12)

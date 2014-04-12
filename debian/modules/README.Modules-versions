@@ -59,3 +59,7 @@ README for Modules versions
  ngx_http_substitutions_filter_module
   Homepage: https://github.com/yaoweibin/ngx_http_substitutions_filter_module
   Version: v0.6.4
+
+ spnego-http-auth-nginx-module
+  Homepage: https://github.com/stnoonan/spnego-http-auth-nginx-module
+  Version: 46e400cb87f3576a27731cce11c2f6f421a7cefd

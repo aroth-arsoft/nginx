@@ -8,9 +8,10 @@ debian_ldflags:=$(shell dpkg-buildflags --get LDFLAGS)
 DEBIAN_NGINX_PERL_LDFLAGS:= $(debian_ldflags)
 export DEBIAN_NGINX_PERL_LDFLAGS
 
-FLAVOURS:=full light extras naxsi
+FLAVOURS:=full passenger light extras naxsi
 
 BUILDDIR_full = $(CURDIR)/debian/build-full
+BUILDDIR_passenger = $(CURDIR)/debian/build-passenger
 BUILDDIR_light = $(CURDIR)/debian/build-light
 BUILDDIR_extras = $(CURDIR)/debian/build-extras
 BUILDDIR_naxsi = $(CURDIR)/debian/build-naxsi
@@ -86,6 +87,29 @@ config.status.full: config.env.full
             >$@
 	touch $@
 
+config.status.passenger: config.env.passenger
+	cd $(BUILDDIR_passenger) && ./configure  \
+	    $(common_configure_flags) \
+	    --with-http_addition_module \
+	    --with-http_dav_module \
+	    --with-http_geoip_module \
+	    --with-http_gzip_static_module \
+	    --with-http_image_filter_module \
+	    --with-http_spdy_module \
+	    --with-http_sub_module \
+	    --with-http_xslt_module \
+	    --with-mail \
+	    --with-mail_ssl_module \
+	    --add-module=$(MODULESDIR)/nginx-auth-pam \
+	    --add-module=$(MODULESDIR)/nginx-dav-ext-module \
+	    --add-module=$(MODULESDIR)/nginx-echo \
+	    --add-module=$(MODULESDIR)/nginx-upstream-fair \
+	    --add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
+	    --add-module=$(MODULESDIR)/spnego-http-auth-nginx-module \
+	    --add-module=$(MODULESDIR)/passenger/ext/nginx \
+            >$@
+	touch $@
+
 config.status.light: config.env.light
 	cd $(BUILDDIR_light) && ./configure  \
 	    $(common_configure_flags) \
@@ -136,6 +160,7 @@ config.status.extras: config.env.extras
 	    --add-module=$(MODULESDIR)/nginx-upstream-fair \
 	    --add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
 	    --add-module=$(MODULESDIR)/spnego-http-auth-nginx-module \
+	    --add-module=$(MODULESDIR)/passenger/ext/nginx \
             >$@
 	touch $@
 

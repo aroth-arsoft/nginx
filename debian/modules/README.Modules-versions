@@ -63,3 +63,7 @@ README for Modules versions
  spnego-http-auth-nginx-module
   Homepage: https://github.com/stnoonan/spnego-http-auth-nginx-module
   Version: 46e400cb87f3576a27731cce11c2f6f421a7cefd
+
+ passenger
+  Homepage: http://www.phusionpassenger.com
+  Version: 4.0.41

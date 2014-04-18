@@ -3,3 +3,15 @@
 *.debhelper.log
 /build-*
 /files
+/nginx
+/nginx-doc
+/nginx-naxsi-dbg
+/nginx-naxsi-ui
+/nginx-naxsi
+/nginx-common
+/nginx-extras-dbg
+/nginx-extras
+/nginx-light
+/nginx-light-dbg
+/nginx-full
+/nginx-full-dbg

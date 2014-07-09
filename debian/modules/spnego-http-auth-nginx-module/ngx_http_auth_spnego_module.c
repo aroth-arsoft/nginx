@@ -37,7 +37,11 @@
 #include <krb5.h>
 #include <com_err.h>
 
-#define krb5_get_err_text(context,code) error_message(code)
+
+#define spnego_log_krb5_error(context,code) {\
+    const char* ___kerror = krb5_get_error_message(context, code);\
+    spnego_debug2("Kerberos error: %d, %s", code , ___kerror);\
+    krb5_free_error_message( context, ___kerror  ); }
 #define spnego_error(code) ret = code; goto end
 #define spnego_debug0(msg) ngx_log_debug0(\
         NGX_LOG_DEBUG_HTTP, r->connection->log, 0, msg)
@@ -115,6 +119,7 @@ typedef struct {
 #define SPNEGO_NGX_CONF_FLAGS NGX_HTTP_MAIN_CONF\
     | NGX_HTTP_SRV_CONF\
     | NGX_HTTP_LOC_CONF\
+    | NGX_HTTP_LMT_CONF\
     | NGX_CONF_FLAG
 
 /* Module Directives */
@@ -456,7 +461,7 @@ ngx_http_auth_spnego_basic(
     krb5_principal client = NULL;
     krb5_principal server = NULL;
     krb5_creds creds;
-    krb5_get_init_creds_opt gic_options;
+    krb5_get_init_creds_opt *gic_options = NULL;
     int kret = 0;
     char *name = NULL;
     char *p = NULL;
@@ -494,14 +499,14 @@ ngx_http_auth_spnego_basic(
 
     if (kret) {
         spnego_log_error("Kerberos error:  Unable to parse service name");
-        spnego_log_error("Kerberos error:", krb5_get_err_text(kcontext, code));
+        spnego_log_krb5_error(kcontext, code);
         spnego_error(NGX_ERROR);
     }
 
     code = krb5_unparse_name(kcontext, server, &name);
     if (code) {
         spnego_log_error("Kerberos error: Cannot unparse servicename");
-        spnego_log_error("Kerberos error:", krb5_get_err_text(kcontext, code));
+        spnego_log_krb5_error(kcontext, code);
         spnego_error(NGX_ERROR);
     }
 
@@ -560,7 +565,7 @@ ngx_http_auth_spnego_basic(
     if (code) {
         spnego_log_error("Kerberos error: Unable to parse username");
         spnego_debug1("username is %s.", (const char *) user.data);
-        spnego_log_error("Kerberos error:", krb5_get_err_text(kcontext, code));
+        spnego_log_krb5_error(kcontext, code);
         spnego_error(NGX_ERROR);
     }
 
@@ -569,22 +574,22 @@ ngx_http_auth_spnego_basic(
     code = krb5_unparse_name(kcontext, client, &name);
     if (code) {
         spnego_log_error("Kerberos error: Cannot unparse username");
-        spnego_log_error("Kerberos error:", krb5_get_err_text(kcontext, code));
+        spnego_log_krb5_error(kcontext, code);
         spnego_error(NGX_ERROR);
     }
 
-    krb5_get_init_creds_opt_init(&gic_options);
+    krb5_get_init_creds_opt_alloc(kcontext, &gic_options);
 
     code =
         krb5_get_init_creds_password(kcontext, &creds, client,
                 (char *) r->headers_in.passwd.data,
-                NULL, NULL, 0, NULL, &gic_options);
+                NULL, NULL, 0, NULL, gic_options);
 
     krb5_free_cred_contents(kcontext, &creds);
 
     if (code) {
         spnego_log_error("Kerberos error: Credentials failed");
-        spnego_log_error("Kerberos error:", krb5_get_err_text(kcontext, code));
+        spnego_log_krb5_error(kcontext, code);
         spnego_error(NGX_DECLINED);
     }
     spnego_debug0("ngx_http_auth_spnego_basic: returning NGX_OK");
@@ -598,6 +603,9 @@ end:
         krb5_free_principal(kcontext, client);
     if (server)
         krb5_free_principal(kcontext, server);
+
+    krb5_get_init_creds_opt_free(kcontext, gic_options);
+
     krb5_free_context(kcontext);
 
     return ret;

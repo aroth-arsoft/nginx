@@ -31,6 +31,7 @@ and pass an `--add-module` option to nginx configure:
 
     ./configure --add-module=spnego-http-auth-nginx-module
 
+Note that if it isn't clear, you do need KRB5 (MIT or Heimdal) header files installed.  On Debian based distributions, including Ubuntu, this is the krb5-multidev, libkrb5-dev, heimdal-dev, or heimdal-multidev package depending on your environment.  On other Linux distributions, you want the development libraries that provide gssapi_krb5.h.
 
 Configuration reference
 -----------------------
@@ -47,7 +48,7 @@ These options should ONLY be specified if you have a keytab containing
 privileged principals.  In nearly all cases, you should not put these
 in the configuration file, as `gss_accept_sec_context` will do the right
 thing.
-* `auth_gss_realm`: Kerberos realm name
+* `auth_gss_realm`: Kerberos realm name.  If this is specified, the realm is only passed to the nginx variable $remote_user if it differs from this default.  To override this behavior, set *auth_gss_format_full* to 1 in your configuration.
 * `auth_gss_service_name`: service principal name to use when acquiring
   credentials.
 

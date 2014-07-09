@@ -183,3 +183,4 @@ config.arch.%:
 
 clean.%:
 	rm -rf $(BUILDDIR_$*)
+	-rm -rf debian/modules/passenger/buildout

@@ -1,3 +1,28 @@
+nginx (1.6.0-1.1~aroth~ppa1) trusty; urgency=medium
+
+  * take over upstream package changes and integrate
+    kerberos authentication
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 09 Jul 2014 15:01:58 +0200
+
+nginx (1.6.0-1+trusty0) trusty; urgency=medium
+
+  * New upstream release (1.6.0)
+  * Update version string to match PPA version strings
+
+ -- Thomas Ward <teward@ubuntu.com>  Sun, 27 Apr 2014 12:07:07 -0400
+
+nginx (1.6.0-1) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * New upstream release.
+  * debian/rules:
+    + Enable auth request http module. (Closes: #725732)
+  * debian/patches/series:
+    + Remove backported openssl guard patch.
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Thu, 24 Apr 2014 19:23:22 +0300
+
 nginx (1.5.12-1.1~aroth~ppa1) saucy; urgency=low
 
   * take over upstream release 1.5.12

@@ -1,3 +1,9 @@
+nginx (1.6.0-1.2~aroth~ppa1) trusty; urgency=medium
+
+  * fixed remote_user for gssapi auth
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Fri, 11 Jul 2014 13:56:37 +0200
+
 nginx (1.6.0-1.1~aroth~ppa1) trusty; urgency=medium
 
   * take over upstream package changes and integrate

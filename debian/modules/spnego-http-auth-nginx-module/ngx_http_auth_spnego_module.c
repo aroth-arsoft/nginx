@@ -527,7 +527,7 @@ ngx_http_auth_spnego_basic(
                 spnego_log_error("Not enough memory");
                 spnego_error(NGX_ERROR);
             }
-            ngx_sprintf(new_user, "%s", user.data);
+            ngx_snprintf(new_user, user.len, "%s", user.data);
             new_user[len-1] = '\0';
             r->headers_in.user.len = len;
             ngx_pfree(r->pool, r->headers_in.user.data);
@@ -540,7 +540,7 @@ ngx_http_auth_spnego_basic(
         ngx_snprintf(user.data, user.len, "%V%Z", &r->headers_in.user);
         if(alcf->force_realm && alcf->realm.data){
             p = ngx_strchr(user.data,'@');
-            if (ngx_strcmp(p + 1, alcf->realm.data) != 0) {
+            if (ngx_strncmp(p + 1, alcf->realm.data, alcf->realm.len) != 0) {
                 *p = '\0';
                 len = user.len + 2 + alcf->realm.len;
                 new_user = ngx_pcalloc(r->pool, len);
@@ -548,7 +548,7 @@ ngx_http_auth_spnego_basic(
                     spnego_log_error("Not enough memory");
                     spnego_error(NGX_ERROR);
                 }
-                ngx_sprintf(new_user,"%s@%s%Z",user.data,alcf->realm.data);
+                ngx_snprintf(new_user, len, "%s@%s%Z",user.data,alcf->realm.data);
                 new_user[len-1] = '\0';
                 r->headers_in.user.len = len;
                 ngx_pfree(r->pool, r->headers_in.user.data);
@@ -622,20 +622,22 @@ ngx_int_t
 ngx_http_auth_spnego_set_bogus_authorization(
     ngx_http_request_t *r)
 {
+    const char *bogus_passwd = "bogus_auth_gss_passwd";
     ngx_str_t plain, encoded, final;
 
     if (r->headers_in.user.len == 0) {
         return NGX_DECLINED;
     }
 
-    /* including \0 from sizeof because it's "user:password" */
-    plain.len = r->headers_in.user.len + sizeof("bogus");
+    /* +1 because of the ":" in "user:password" */
+    plain.len = r->headers_in.user.len + ngx_strlen(bogus_passwd) + 1;
     plain.data = ngx_pnalloc(r->pool, plain.len);
     if (NULL == plain.data) {
         return NGX_ERROR;
     }
 
-    ngx_snprintf(plain.data, plain.len, "%V:bogus", &r->headers_in.user);
+    ngx_snprintf(plain.data, plain.len, "%V:%s",
+            &r->headers_in.user, bogus_passwd);
 
     encoded.len = ngx_base64_encoded_length(plain.len);
     encoded.data = ngx_pnalloc(r->pool, encoded.len);
@@ -661,19 +663,35 @@ ngx_http_auth_spnego_set_bogus_authorization(
 }
 
 static bool
-env_ktname(
+use_keytab(
     ngx_http_request_t * r,
     ngx_str_t *keytab)
 {
-    char *ktname = NULL;
-    size_t kt_sz = sizeof("KRB5_KTNAME=") + keytab->len;
-
-    ktname = (char *) ngx_pcalloc(r->pool, kt_sz + 1);
-    if (NULL == ktname) {
+    size_t kt_env_sz = sizeof("KRB5_KTNAME=") + keytab->len;
+    char *kt_env = (char *) ngx_pcalloc(r->pool, kt_env_sz + 1);
+    if (NULL == kt_env) {
         return false;
     }
-    ngx_snprintf((u_char *) ktname, kt_sz, "KRB5_KTNAME=%V%Z", keytab);
-    putenv(ktname);
+    ngx_snprintf((u_char *) kt_env, kt_env_sz, "KRB5_KTNAME=%V%Z", keytab);
+    if (putenv(kt_env) != 0) {
+        spnego_debug0("Failed to update environment with keytab location");
+        return false;
+    }
+
+    size_t kt_sz = keytab->len + 1;
+    char *kt = (char *) ngx_pcalloc(r->pool, kt_sz);
+    if (NULL == kt) {
+        return false;
+    }
+    ngx_snprintf((u_char *) kt, kt_sz, "%V%Z", keytab);
+    OM_uint32 major_status, minor_status = 0;
+    major_status = gsskrb5_register_acceptor_identity(kt);
+    if (GSS_ERROR(major_status)) {
+        spnego_log_error("%s failed to register keytab", get_gss_error(
+                    r->pool, minor_status,
+                    "gsskrb5_register_acceptor_identity() failed"));
+        return false;
+    }
 
     spnego_debug1("Use keytab %V", keytab);
     return true;
@@ -686,7 +704,7 @@ ngx_http_auth_spnego_auth_user_gss(
     ngx_http_auth_spnego_loc_conf_t * alcf)
 {
     ngx_int_t ret = NGX_DECLINED;
-    char *p;
+    u_char *pu;
     ngx_str_t spnego_token = ngx_null_string;
     OM_uint32 major_status, minor_status, minor_status2;
     gss_buffer_desc service = GSS_C_EMPTY_BUFFER;
@@ -702,8 +720,8 @@ ngx_http_auth_spnego_auth_user_gss(
 
     spnego_debug0("GSSAPI authorizing");
 
-    if (!env_ktname(r, &alcf->keytab)) {
-        spnego_debug0("Failed to set KRB5_KTNAME");
+    if (!use_keytab(r, &alcf->keytab)) {
+        spnego_debug0("Failed to specify keytab");
         spnego_error(NGX_ERROR);
     }
 
@@ -808,9 +826,10 @@ ngx_http_auth_spnego_auth_user_gss(
 
         r->headers_in.user.len = user.len;
         if (alcf->fqun == 0) {
-            p = ngx_strchr(r->headers_in.user.data, '@');
-            if (p != NULL &&  ngx_strncmp(p + 1, alcf->realm.data, alcf->realm.len) == 0) {
-                *p = '\0';
+            pu = ngx_strlchr(r->headers_in.user.data,
+                r->headers_in.user.data + r->headers_in.user.len, '@');
+            if (pu != NULL && ngx_strncmp(pu + 1, alcf->realm.data, alcf->realm.len) == 0) {
+                *pu = '\0';
                 r->headers_in.user.len = ngx_strlen(r->headers_in.user.data);
             }
         }

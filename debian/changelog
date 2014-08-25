@@ -1,3 +1,44 @@
+nginx (1.6.1-1ubuntu2) utopic; urgency=medium
+
+  * Rebuild for Perl 5.20.0.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 24 Aug 2014 06:43:36 -0700
+
+nginx (1.6.1-1ubuntu1) utopic; urgency=medium
+
+  * Merge from Debian. Remaining changes:
+    - debian/patches/ubuntu-branding.patch: add Ubuntu branding
+      (refreshed).
+    - debian/rules: Drop from -O3 to -O2 to work around a build failure.
+    - d/{control,rules,nginx-core.*}: add new binary package for main,
+      nginx-core, which contains only source-tarball-included modules
+      and no third-party modules.
+  * Add dep8 smoke test
+
+ -- Robie Basak <robie.basak@ubuntu.com>  Fri, 15 Aug 2014 16:46:48 +0000
+
+nginx (1.6.1-1) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * New upstream release.
+    Handle CVE-2014-3556 SMTP STARTTLS vulnerability (Closes: #757196)
+    http://mailman.nginx.org/pipermail/nginx-announce/2014/000144.html
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Wed, 06 Aug 2014 10:05:08 +0300
+
+nginx (1.6.0-2) unstable; urgency=medium
+
+  [ gregor herrmann ]
+  * Patch from Gregor Herrmann <gregoa@debian.org>:
+    Fix "hardcodes /usr/lib/perl5":
+    - drop debian/nginx-extras.dirs, not needed, dh_install uses the
+      directories from debian/nginx-extras.install
+    - make debian/nginx-extras.install executable, and use $Config{vendorarch}
+      for the perl library path there
+    (Closes: #752796)
+
+ -- Kartik Mistry <kartik@debian.org>  Tue, 29 Jul 2014 04:56:03 +0000
+
 nginx (1.6.0-1.2~aroth~ppa1) trusty; urgency=medium
 
   * fixed remote_user for gssapi auth

@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 export DH_VERBOSE=1
 
-debian_cflags:=$(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+debian_cflags:=$(shell dpkg-buildflags --get CFLAGS | sed 's/-O3/-O2/') $(shell dpkg-buildflags --get CPPFLAGS)
 debian_ldflags:=$(shell dpkg-buildflags --get LDFLAGS)
 
 # export necessary perl hardenging flags
@@ -9,7 +9,7 @@ debian_ldflags:=$(shell dpkg-buildflags --get LDFLAGS)
 DEBIAN_NGINX_PERL_LDFLAGS:= $(debian_ldflags)
 export DEBIAN_NGINX_PERL_LDFLAGS
 
-FLAVOURS := full passenger light extras naxsi
+FLAVOURS := core full passenger light extras naxsi
 
 MODULESDIR = $(CURDIR)/debian/modules
 BASEDIR = $(CURDIR)
@@ -47,6 +47,19 @@ common_configure_flags := \
 			--with-http_stub_status_module \
 			--with-http_realip_module \
 			--with-http_auth_request_module
+
+core_configure_flags := \
+			$(common_configure_flags) \
+			--with-http_addition_module \
+			--with-http_dav_module \
+			--with-http_geoip_module \
+			--with-http_gzip_static_module \
+			--with-http_image_filter_module \
+			--with-http_spdy_module \
+			--with-http_sub_module \
+			--with-http_xslt_module \
+			--with-mail \
+			--with-mail_ssl_module
 
 light_configure_flags := \
 			$(common_configure_flags) \

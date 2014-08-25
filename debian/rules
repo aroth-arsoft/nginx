@@ -9,7 +9,7 @@ debian_ldflags:=$(shell dpkg-buildflags --get LDFLAGS)
 DEBIAN_NGINX_PERL_LDFLAGS:= $(debian_ldflags)
 export DEBIAN_NGINX_PERL_LDFLAGS
 
-FLAVOURS := core full passenger light extras naxsi
+FLAVOURS := core full light extras naxsi
 
 MODULESDIR = $(CURDIR)/debian/modules
 BASEDIR = $(CURDIR)
@@ -96,26 +96,6 @@ full_configure_flags := \
 			--add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
 			--add-module=$(MODULESDIR)/spnego-http-auth-nginx-module
 
-passenger_configure_flags := \
-			$(common_configure_flags) \
-			--with-http_addition_module \
-			--with-http_dav_module \
-			--with-http_geoip_module \
-			--with-http_gzip_static_module \
-			--with-http_image_filter_module \
-			--with-http_spdy_module \
-			--with-http_sub_module \
-			--with-http_xslt_module \
-			--with-mail \
-			--with-mail_ssl_module \
-			--add-module=$(MODULESDIR)/nginx-auth-pam \
-			--add-module=$(MODULESDIR)/nginx-dav-ext-module \
-			--add-module=$(MODULESDIR)/nginx-echo \
-			--add-module=$(MODULESDIR)/nginx-upstream-fair \
-			--add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
-			--add-module=$(MODULESDIR)/spnego-http-auth-nginx-module \
-			--add-module=$(MODULESDIR)/passenger/ext/nginx
-
 extras_configure_flags := \
 			$(common_configure_flags) \
 			--with-http_addition_module \
@@ -196,4 +176,3 @@ config.arch.%:
 
 clean.%:
 	rm -rf $(BUILDDIR_$*)
-	-rm -rf debian/modules/passenger/buildout

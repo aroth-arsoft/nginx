@@ -1,3 +1,9 @@
+nginx (1.6.1-1ubuntu2.1~aroth~ppa1) trusty; urgency=medium
+
+  * backport latest version 1.6.1
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Mon, 25 Aug 2014 12:20:29 +0200
+
 nginx (1.6.1-1ubuntu2) utopic; urgency=medium
 
   * Rebuild for Perl 5.20.0.

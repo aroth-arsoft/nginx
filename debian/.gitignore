@@ -17,3 +17,5 @@
 /nginx-full-dbg
 /nginx-passenger
 /nginx-passenger-dbg
+/nginx-core/
+/nginx-core-dbg/

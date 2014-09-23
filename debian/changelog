@@ -1,3 +1,70 @@
+nginx (1.6.2-1ubuntu1.1~aroth~ppa1) trusty; urgency=medium
+
+  * new upstream version 1.6.2 (fixes CVE-2014-3616)
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 23 Sep 2014 17:43:02 +0200
+
+nginx (1.6.2-1ubuntu1) utopic; urgency=medium
+
+  * Merge from Debian. Remaining changes:
+    - debian/patches/ubuntu-branding.patch: add Ubuntu branding
+      (refreshed).
+    - debian/rules: Drop from -O3 to -O2 to work around a build failure.
+    - d/{control,rules,nginx-core.*}: add new binary package for main,
+      nginx-core, which contains only source-tarball-included modules
+      and no third-party modules.
+  * debian/tests/control: add nginx-core test.
+  * debian/control: drop luajit from Build-Depends as it is in universe.
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Mon, 22 Sep 2014 13:32:30 -0400
+
+nginx (1.6.2-1) unstable; urgency=high
+
+  [ Christos Trochalakis ]
+  * New upstream release.
+    CVE-2014-3616: "it was possible to reuse SSL sessions in unrelated
+    contexts if a shared SSL session cache or the same TLS session ticket
+    key was used for multiple "server" blocks".
+    (Closes: #761940)
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Wed, 17 Sep 2014 11:19:01 +0300
+
+nginx (1.6.1-2) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * debian/control:
+    + Build nginx-extras against luajit (Closes: #755875)
+  * debian/modules/nginx-lua:
+    + Update nginx-lua to v0.9.12
+  * debian/nginx-common.nginx.init:
+    + Better pidfile extraction from nginx.conf (Closes: #747329)
+  * debian/conf/mime.types:
+    + Upgrade to the latest upstream mime types.
+      As a consequence, nginx now uses "application/javascript" for
+      javascript files.
+  * debian/conf/nginx.conf:
+    + Add application/javascript to the gzip_types list. (Closes: #737176)
+  * debian/rules:
+    + Make naxsi module first in configure parameters.
+      Fixes erratic naxsi behaviour. (Closes: #758642)
+  * debian/conf/{koi-utf,koi-win,scgi_params,uwsgi_params}:
+    + Sync with upstream config files.
+  * debian/conf/fastcgi_params:
+    + Sync with upstream and remove `SCRIPT_FILENAME` parameter.
+      This change might break fastcgi sites. (Closes: #718639)
+  + debian/conf/fastcgi.conf:
+    + Ship upstream file.
+  * debian/nginx-common.NEWS:
+    + Document syncing conf files with upstream.
+  * debian/tests/control:
+    + Include some simple autopkgtests.
+      Thanks to Robie Basak for the initial patch. (Closes: #756391)
+  * debian/modules/nginx-http-push:
+    + Update to v0.73.
+      Fixes fd leak on reload. (Closes: #745921)
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Thu, 04 Sep 2014 13:00:46 +0300
+
 nginx (1.6.1-1ubuntu2.1~aroth~ppa1) trusty; urgency=medium
 
   * backport latest version 1.6.1

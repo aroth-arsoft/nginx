@@ -1,3 +1,17 @@
+nginx (1.6.2-1ubuntu1.2~aroth~ppa1) trusty; urgency=medium
+
+  * take over latest ubuntu changes
+  * use latest version of spnego-http-auth-nginx-module
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Thu, 23 Oct 2014 07:46:33 +0200
+
+nginx (1.6.2-1ubuntu1.1) utopic; urgency=medium
+
+  * debian/conf/sites-available/default: Remove SSLv3 from the ssl_protocols
+    line in the default config example, due to POODLE vulnerability.
+
+ -- Thomas Ward <teward@dark-net.net>  Wed, 22 Oct 2014 09:43:35 -0400
+
 nginx (1.6.2-1ubuntu1.1~aroth~ppa1) trusty; urgency=medium
 
   * new upstream version 1.6.2 (fixes CVE-2014-3616)
@@ -178,6 +192,15 @@ nginx (1.5.11-1+saucy0) saucy; urgency=medium
 
  -- Thomas Ward <teward@ubuntu.com>  Tue, 11 Mar 2014 20:10:01 -0400
 
+nginx (1.4.7-2) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * debian/rules:
+    + Convert to dh $@
+      As a side effect, fixes make dependency issues (Closes: #744050)
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Thu, 17 Apr 2014 14:30:27 +0300
+
 nginx (1.4.7-1) unstable; urgency=medium
 
   [ Christos Trochalakis ]
@@ -201,6 +224,34 @@ nginx (1.4.7-1) unstable; urgency=medium
 
  -- Christos Trochalakis <yatiohi@ideopolis.gr>  Tue, 18 Mar 2014 22:03:47 +0200
 
+nginx (1.4.6-1ubuntu3) trusty; urgency=medium
+
+  * Add new binary package for main, nginx-core, which contains only
+    source-tarball-included modules and no third-party modules.
+  * Changes to debian/ directory:
+    - control:
+      + Add entry for nginx-core and nginx-core-dbg.
+    - rules:
+      + Add nginx-core flavor to the build rules.
+    - nginx-core.*: Add new packaging files for nginx-core based on
+      the packaging files for nginx-full.
+  * The above changes satisfy the requirements for main (LP: #1262710)
+
+ -- Thomas Ward <teward@ubuntu.com>  Mon, 10 Mar 2014 18:23:36 -0400
+
+nginx (1.4.6-1ubuntu2) trusty; urgency=medium
+
+  * debian/rules: Drop from -O3 to -O2 to work around a build failure.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Sun, 09 Mar 2014 11:49:28 -0600
+
+nginx (1.4.6-1ubuntu1) trusty; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/patches/ubuntu-branding.patch: Add Ubuntu branding.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Sun, 09 Mar 2014 11:13:26 -0600
+
 nginx (1.4.6-1) unstable; urgency=medium
 
   [ Christos Trochalakis ]
@@ -221,6 +272,14 @@ nginx (1.4.6-1) unstable; urgency=medium
     + Fix upstream signature verification.
 
  -- Christos Trochalakis <yatiohi@ideopolis.gr>  Tue, 04 Mar 2014 18:06:55 +0200
+
+nginx (1.4.5-1ubuntu1) trusty; urgency=medium
+
+  * Resynchronise with Debian (LP: #1280511).  Remaining changes:
+    - debian/patches/ubuntu-branding.patch:
+      + Add Ubuntu branding to server_tokens.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 15 Feb 2014 03:05:42 +0000
 
 nginx (1.4.5-1) unstable; urgency=medium
 
@@ -262,6 +321,14 @@ nginx (1.4.4-3) unstable; urgency=medium
 
  -- Christos Trochalakis <yatiohi@ideopolis.gr>  Tue, 31 Dec 2013 11:47:07 +0200
 
+nginx (1.4.4-2ubuntu1) trusty; urgency=medium
+
+  * Resynchronise with Debian.  Remaining changes:
+    - debian/patches/ubuntu-branding.patch:
+      + Add Ubuntu branding to server_tokens.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 28 Dec 2013 10:21:44 +0000
+
 nginx (1.4.4-2) unstable; urgency=low
 
   [ Michael Lustfield ]
@@ -299,6 +366,14 @@ nginx (1.4.4-2) unstable; urgency=low
 
  -- Kartik Mistry <kartik@debian.org>  Fri, 27 Dec 2013 21:16:01 +0530
 
+nginx (1.4.4-1ubuntu1) trusty; urgency=low
+
+  * Resynchronise with Debian (LP: #1253691).  Remaining changes:
+    - debian/patches/ubuntu-branding.patch:
+      + Add Ubuntu branding to server_tokens.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 22 Nov 2013 12:23:25 +0000
+
 nginx (1.4.4-1) unstable; urgency=low
 
   [ Christos Trochalakis ]
@@ -322,6 +397,14 @@ nginx (1.4.4-1) unstable; urgency=low
       (Closes: #728103)
 
  -- Michael Lustfield <michael@lustfield.net>  Thu, 21 Nov 2013 19:25:50 +0530
+
+nginx (1.4.3-2ubuntu1) trusty; urgency=low
+
+  * Resynchronise with Debian.  Remaining changes:
+    - debian/patches/ubuntu-branding.patch:
+      + Add Ubuntu branding to server_tokens.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 Oct 2013 13:26:52 +0100
 
 nginx (1.4.3-2) unstable; urgency=low
 
@@ -379,6 +462,14 @@ nginx (1.4.3-1) unstable; urgency=low
 
  -- Kartik Mistry <kartik@debian.org>  Thu, 10 Oct 2013 17:28:56 +0530
 
+nginx (1.4.1-3ubuntu1) saucy; urgency=low
+
+  * Resynchronise with Debian.  Remaining changes:
+    - debian/patches/ubuntu-branding.patch:
+      + Add Ubuntu branding to server_tokens.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 20 Jun 2013 15:08:44 +0100
+
 nginx (1.4.1-3) unstable; urgency=low
 
   [ Kartik Mistry ]
@@ -391,6 +482,14 @@ nginx (1.4.1-3) unstable; urgency=low
     + Added argument "install" to the preinst script. (Closes: #711590)
 
  -- Kartik Mistry <kartik@debian.org>  Sun, 09 Jun 2013 13:07:52 +0530
+
+nginx (1.4.1-2ubuntu1) saucy; urgency=low
+
+  * Resynchronise with Debian.  Remaining changes:
+    - debian/patches/ubuntu-branding.patch:
+      + Add Ubuntu branding to server_tokens.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Jun 2013 15:41:48 +0100
 
 nginx (1.4.1-2) unstable; urgency=medium
 
@@ -412,6 +511,24 @@ nginx (1.4.1-2) unstable; urgency=medium
       (Closes: #708522)
 
  -- Kartik Mistry <kartik@debian.org>  Thu, 06 Jun 2013 12:55:23 +0530
+
+nginx (1.4.1-1ubuntu2) saucy; urgency=low
+
+  * Rebuild for libgd3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 20 May 2013 00:45:10 +0100
+
+nginx (1.4.1-1ubuntu1) saucy; urgency=low
+
+  * Merge with Debian unstable (LP: #1177919). Remaining changes:
+    - debian/conf/sites-available/default:
+      + Modify default site configuration file to correct a typo
+        that prevented out-of-the-box usability (LP: #1162177).
+    - debian/patches/ubuntu-branding.patch:
+      + Add ubuntu branding to server_tokens.
+  * Refresh all patches.
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Sat, 11 May 2013 14:47:53 +0400
 
 nginx (1.4.1-1) unstable; urgency=low
 
@@ -489,6 +606,36 @@ nginx (1.4.0-1) experimental; urgency=low
     + Removed obsolete --with-md5 and --with-sha1
 
  -- Kartik Mistry <kartik@debian.org>  Thu, 25 Apr 2013 12:51:45 +0530
+
+nginx (1.2.6-1ubuntu4) saucy; urgency=low
+
+  * debian/patches/ubuntu-branding.patch: Move Ubuntu branding from
+    the numerical version string to the long version (LP: #1174158)
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Thu, 09 May 2013 11:50:52 -0600
+
+nginx (1.2.6-1ubuntu3) raring; urgency=low
+
+  * debian/patches/ubuntu-branding.patch: Add ubuntu branding
+    to server_tokens. 
+
+ -- Chuck Short <zulcss@ubuntu.com>  Tue, 09 Apr 2013 10:23:26 -0500
+
+nginx (1.2.6-1ubuntu2) raring; urgency=low
+
+  * debian/conf/sites-available/default:
+    * Modify default site configuration file to correct a typo
+      that prevented out-of-the-box usability (LP: #1162177)
+
+ -- Thomas Ward <teward@ubuntu.com>  Fri, 05 Apr 2013 20:22:38 +0100
+
+nginx (1.2.6-1ubuntu1) raring; urgency=low
+
+  * debian/conf/sites-available/default:
+    * Modify default site default configuration file to bind to IPv6
+      only for IPv6 default listen statement (LP: #1132678)
+
+ -- Thomas Ward <teward@ubuntu.com>  Tue, 12 Mar 2013 00:23:02 +0000
 
 nginx (1.2.6-1) unstable; urgency=low
 

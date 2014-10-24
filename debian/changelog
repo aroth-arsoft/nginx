@@ -1,3 +1,9 @@
+nginx (1.6.2-1ubuntu1.2~aroth~ppa2) trusty; urgency=medium
+
+  * fixed build for utopic
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Fri, 24 Oct 2014 18:22:26 +0200
+
 nginx (1.6.2-1ubuntu1.2~aroth~ppa1) trusty; urgency=medium
 
   * take over latest ubuntu changes

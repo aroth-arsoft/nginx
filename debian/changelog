@@ -1,3 +1,9 @@
+nginx (1.6.2-4ubuntu0.1~aroth~ppa2) utopic; urgency=medium
+
+  * fixed build
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 09 Nov 2014 10:39:45 +0100
+
 nginx (1.6.2-4ubuntu0.1~aroth~ppa1) utopic; urgency=medium
 
   * take over debian changes

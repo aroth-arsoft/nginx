@@ -57,5 +57,6 @@ README for Modules versions
   Version: v0.6.4
 
  spnego-http-auth-nginx-module
-  Homepage: https://github.com/stnoonan/spnego-http-auth-nginx-module
-  Version: e59a22d3cf78fe756d7b381ad0b88dfd7fa9aad6 (Tue Oct 21 21:13:12 2014 -0400)
+  Homepage: https://github.com/aroth-arsoft/spnego-http-auth-nginx-module
+  Original: https://github.com/stnoonan/spnego-http-auth-nginx-module
+  Version: 3ddf4da8edbfae49f0b7b55fa9f9d12d6ad56954 (2014-11-12 07:01:03)

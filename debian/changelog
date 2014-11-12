@@ -1,3 +1,10 @@
+nginx (1.6.2-4ubuntu0.2~aroth~ppa1) utopic; urgency=medium
+
+  * use https://github.com/aroth-arsoft/spnego-http-auth-nginx-module
+    with improved fallback to basic when GSSAPI fails
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 12 Nov 2014 07:03:49 +0100
+
 nginx (1.6.2-4ubuntu0.1~aroth~ppa2) utopic; urgency=medium
 
   * fixed build

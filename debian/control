@@ -26,7 +26,7 @@ Build-Depends: autotools-dev,
                po-debconf,
                zlib1g-dev,
                libkrb5-dev
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6.0
 Homepage: http://nginx.net
 Vcs-Git: git://anonscm.debian.org/collab-maint/nginx.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/nginx.git;a=summary
@@ -87,7 +87,7 @@ Architecture: any
 Depends: nginx-common (= ${source:Version}), ${misc:Depends}, ${shlibs:Depends}
 Breaks: nginx (<< 1.4.5-1)
 Provides: httpd, httpd-cgi, nginx
-Conflicts: nginx-extras, nginx-light, nginx-naxsi, nginx-full
+Conflicts: nginx-extras, nginx-light, nginx-full
 Suggests: nginx-doc (= ${source:Version})
 Description: nginx web/proxy server (core version)
  Nginx ("engine X") is a high-performance web and reverse proxy server
@@ -117,7 +117,7 @@ Architecture: any
 Section: debug
 Priority: extra
 Depends: nginx-core (= ${binary:Version}), ${misc:Depends}
-Conflicts: nginx-extras-dbg, nginx-light-dbg, nginx-naxsi-dbg, nginx-full-dbg
+Conflicts: nginx-extras-dbg, nginx-light-dbg, nginx-full-dbg
 Description: nginx web/proxy server (core version) - debugging symbols
  Nginx ("engine X") is a high-performance web and reverse proxy server
  created by Igor Sysoev. It can be used both as a standalone web server

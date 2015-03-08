@@ -1,3 +1,58 @@
+nginx (1.6.2-5ubuntu1.1~aroth~ppa1) vivid; urgency=medium
+
+  * take over latest ubuntu changes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 08 Mar 2015 12:05:16 +0100
+
+nginx (1.6.2-5ubuntu1) vivid; urgency=medium
+
+  * Merge from Debian.  Remaining changes: (LP: #1399967)
+    - debian/patches/ubuntu-branding.patch: add Ubuntu branding (refreshed)
+    - debian/rules: Drop from -O3 to -O2 to work around a build failure.
+    - d/{control,rules,nginx-core.*}: add new binary package for main,
+      nginx-core, which contains only source-tarball-included modules
+      and no third-party modules.
+    - debian/tests/control: add nginx-core test.
+    - debian/control: drop luajit from Build-Depends as it is in universe.
+
+ -- Thomas Ward <teward@ubuntu.com>  Sat, 06 Dec 2014 13:06:55 -0500
+
+nginx (1.6.2-5) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * debian/conf/nginx.conf:
+    + Drop SSLv3 protocol (POODLE), and prefer server ciphers
+      by default. (Closes: #767456)
+  * debian/copyright:
+    + Add copyright for ngx_http_substitutions_filter_module.
+  * debian/nginx-common.{preinst,postinst,postrm}:
+    + Remove /etc/nginx/naxsi-ui.conf conffile. (Closes: #768233)
+  * debian/README.Debian:
+    + Add a list of important changes since wheezy.
+
+ -- Christos Trochalakis <yatiohi@ideopolis.gr>  Sun, 30 Nov 2014 10:39:55 +0200
+
+nginx (1.6.2-4ubuntu1) vivid; urgency=medium
+
+  * Merge from Debian. Remaining changes: (LP: #1388621)
+    - debian/patches/ubuntu-branding.patch: add Ubuntu branding
+      (refreshed).
+    - debian/rules: Drop from -O3 to -O2 to work around a build failure.
+    - d/{control,rules,nginx-core.*}: add new binary package for main,
+      nginx-core, which contains only source-tarball-included modules
+      and no third-party modules.
+    - debian/tests/control: add nginx-core test.
+    - debian/control: drop luajit from Build-Depends as it is in universe.
+  * debian/control:
+    * Remove nginx-naxsi* from nginx-core and related
+      package stanzas, as the naxsi packages have all been dropped.
+    * Remove reference to nginx-naxsi from nginx metapackage description
+  * debian/index.html: Modify included index.html file to have Ubuntu
+    branding, Ubuntu bug reporting tool references, and a link to the
+    Launchpad bugs page for the nginx package.
+
+ -- Thomas Ward <teward@ubuntu.com>  Wed, 05 Nov 2014 10:05:07 -0500
+
 nginx (1.6.2-4ubuntu0.2~aroth~ppa1) utopic; urgency=medium
 
   * use https://github.com/aroth-arsoft/spnego-http-auth-nginx-module

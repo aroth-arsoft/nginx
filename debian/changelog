@@ -1,3 +1,10 @@
+nginx (1.6.2-5ubuntu3.1~aroth~ppa1) vivid; urgency=medium
+
+  * update spnego-http-auth-nginx-module
+  * rebuild with latest ubuntu changes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Fri, 03 Apr 2015 11:14:33 +0200
+
 nginx (1.6.2-5ubuntu3) vivid-proposed; urgency=medium
 
   * debian/rules:

@@ -1,3 +1,22 @@
+nginx (1.6.2-5ubuntu3) vivid-proposed; urgency=medium
+
+  * debian/rules:
+    * Reversed Debian change in 1.6.2-5ubuntu2.
+    * Added DEB_BUILD_MAINT_OPTIONS=hardening=+all to enable all
+      dpkg-buildflags to harden the code, except for PIE flags.
+    * Manually define DEB_BUILD_MAINT_OPTIONS in DEBIAN_NGINX_PERL_LDFLAGS
+      to not have -fPIE conflicts in Perl flags.
+
+ -- Thomas Ward <teward@ubuntu.com>  Wed, 01 Apr 2015 14:57:34 -0400
+
+nginx (1.6.2-5ubuntu2) vivid-proposed; urgency=medium
+
+  * debian/rules:
+    * Added -fPIE -pie to build rules (enables position-independent builds)
+      using Debian's committed change to enable. (LP: #1315426)
+
+ -- Thomas Ward <teward@ubuntu.com>  Wed, 01 Apr 2015 14:26:32 -0400
+
 nginx (1.6.2-5ubuntu1.1~aroth~ppa1) vivid; urgency=medium
 
   * take over latest ubuntu changes

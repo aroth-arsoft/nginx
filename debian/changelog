@@ -1,3 +1,23 @@
+nginx (1.6.2-5ubuntu4.1~aroth~ppa1) vivid; urgency=medium
+
+  * backport latest ubuntu changes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 22 Jul 2015 06:35:52 +0200
+
+nginx (1.6.2-5ubuntu4) wily; urgency=medium
+
+  * debian/apport/source_nginx.py:
+    - Add apport hooks for additional bug information gathering, as a result
+      of non-useful reports due to postinstall script failure bugs. This is
+      necessary in order to be able to actually debug what is going on in the
+      bug reports, thanks to systemd not putting startup errors to stdout or
+      stderr anymore, like Upstart and others did. (LP: #1472683)
+  * debian/nginx-common.install:
+    - Add install rule for debian/apport/source_nginx.py, which is the new
+      apport hooks to gather additional 'Package' bugtype debug data.
+
+ -- Thomas Ward <teward@ubuntu.com>  Fri, 10 Jul 2015 12:51:48 -0400
+
 nginx (1.6.2-5ubuntu3.1~aroth~ppa2) vivid; urgency=medium
 
   * fixed source package issues 

@@ -1,3 +1,10 @@
+nginx (1.6.3-0ubuntu0.1~aroth~ppa1) vivid; urgency=medium
+
+  * use version 1.6.3 of nginx
+  * update spnego-http-auth-nginx-module
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 22 Jul 2015 07:16:06 +0200
+
 nginx (1.6.2-5ubuntu4.1~aroth~ppa1) vivid; urgency=medium
 
   * backport latest ubuntu changes

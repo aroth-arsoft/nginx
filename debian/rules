@@ -2,7 +2,7 @@
 export DH_VERBOSE=1
 
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all
-debian_cflags:=$(shell dpkg-buildflags --get CFLAGS | sed 's/-O3/-O2/') $(shell dpkg-buildflags --get CPPFLAGS)
+debian_cflags:=$(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
 debian_ldflags:=$(shell dpkg-buildflags --get LDFLAGS)
 
 # export necessary perl hardenging flags
@@ -68,7 +68,7 @@ light_configure_flags := \
 			--without-http_browser_module \
 			--without-http_geo_module \
 			--without-http_limit_req_module \
-			--without-http_limit_zone_module \
+			--without-http_limit_conn_module \
 			--without-http_memcached_module \
 			--without-http_referer_module \
 			--without-http_scgi_module \
@@ -83,13 +83,17 @@ full_configure_flags := \
 			--with-http_addition_module \
 			--with-http_dav_module \
 			--with-http_geoip_module \
+			--with-http_gunzip_module \
 			--with-http_gzip_static_module \
 			--with-http_image_filter_module \
 			--with-http_spdy_module \
 			--with-http_sub_module \
 			--with-http_xslt_module \
+			--with-stream \
+			--with-stream_ssl_module \
 			--with-mail \
 			--with-mail_ssl_module \
+			--with-threads \
 			--add-module=$(MODULESDIR)/nginx-auth-pam \
 			--add-module=$(MODULESDIR)/nginx-dav-ext-module \
 			--add-module=$(MODULESDIR)/nginx-echo \
@@ -103,6 +107,7 @@ extras_configure_flags := \
 			--with-http_dav_module \
 			--with-http_flv_module \
 			--with-http_geoip_module \
+			--with-http_gunzip_module \
 			--with-http_gzip_static_module \
 			--with-http_image_filter_module \
 			--with-http_mp4_module \
@@ -114,6 +119,9 @@ extras_configure_flags := \
 			--with-http_xslt_module \
 			--with-mail \
 			--with-mail_ssl_module \
+			--with-stream \
+			--with-stream_ssl_module \
+			--with-threads \
 			--add-module=$(MODULESDIR)/headers-more-nginx-module \
 			--add-module=$(MODULESDIR)/nginx-auth-pam \
 			--add-module=$(MODULESDIR)/nginx-cache-purge \

@@ -50,17 +50,20 @@ common_configure_flags := \
 			--with-http_auth_request_module
 
 core_configure_flags := \
-			$(common_configure_flags) \
-			--with-http_addition_module \
-			--with-http_dav_module \
-			--with-http_geoip_module \
-			--with-http_gzip_static_module \
-			--with-http_image_filter_module \
-			--with-http_v2_module \
-			--with-http_sub_module \
-			--with-http_xslt_module \
-			--with-mail \
-			--with-mail_ssl_module
+                        $(common_configure_flags) \
+                        --with-http_addition_module \
+                        --with-http_dav_module \
+                        --with-http_geoip_module \
+                        --with-http_gunzip_module \
+                        --with-http_gzip_static_module \
+                        --with-http_image_filter_module \
+                        --with-http_sub_module \
+                        --with-http_xslt_module \
+                        --with-stream \
+                        --with-stream_ssl_module \
+                        --with-mail \
+                        --with-mail_ssl_module \
+                        --with-threads
 
 light_configure_flags := \
 			$(common_configure_flags) \
@@ -86,7 +89,6 @@ full_configure_flags := \
 			--with-http_gunzip_module \
 			--with-http_gzip_static_module \
 			--with-http_image_filter_module \
-			--with-http_v2_module \
 			--with-http_sub_module \
 			--with-http_xslt_module \
 			--with-stream \
@@ -114,7 +116,6 @@ extras_configure_flags := \
 			--with-http_perl_module \
 			--with-http_random_index_module \
 			--with-http_secure_link_module \
-			--with-http_v2_module \
 			--with-http_sub_module \
 			--with-http_xslt_module \
 			--with-mail \

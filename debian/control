@@ -63,7 +63,7 @@ Description: small, powerful, scalable web/proxy server - documentation
 
 Package: nginx-common
 Architecture: all
-Depends: lsb-base (>= 3.2-14), ${misc:Depends}, python
+Depends: lsb-base (>= 3.2-14), ${misc:Depends}
 Replaces: nginx (<< 0.8.54-4),
           nginx-extras (<< 0.8.54-4),
           nginx-full (<< 0.8.54-4),
@@ -97,16 +97,16 @@ Description: nginx web/proxy server (core version)
  standard modules included (but omitting some of those included in
  nginx-extras).
  .
- STANDARD HTTP MODULES: Core, Access, Auth Basic, Auto Index, Browser,
- Charset, Empty GIF, FastCGI, Geo, Gzip, Headers, Index, Limit Requests,
- Limit Zone, Log, Map, Memcached, Proxy, Referer, Rewrite, SCGI,
- Split Clients, SSI, Upstream, User ID, UWSGI.
+ STANDARD HTTP MODULES: Core, Access, Auth Basic, Auto Index, Browser, Empty
+ GIF, FastCGI, Geo, Limit Connections, Limit Requests, Map, Memcached, Proxy,
+ Referer, Rewrite, SCGI, Split Clients, UWSGI.
  .
- OPTIONAL HTTP MODULES: Addition, Debug, GeoIP, Gzip Precompression, HTTP Sub,
- Image Filter, IPv6, Real IP, Spdy, SSL, Stub Status, Substitution, WebDAV,
+ OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, GeoIP, Gunzip,
+ Gzip, Gzip Precompression, Headers, Image Filter, Index, Log, Real IP,
+ SSI, SSL, Stream, Stub Status, Substitution, Thread Pool, Upstream, User ID,
  XSLT.
  .
- MAIL MODULES: Mail Core, IMAP, POP3, SMTP, SSL.
+ MAIL MODULES: Mail Core, Auth HTTP, Proxy, SSL, IMAP, POP3, SMTP.
  .
  NOTE: This is identical to the -full build, but without any third party
  modules built in.
@@ -146,7 +146,7 @@ Description: nginx web/proxy server (standard version)
  Referer, Rewrite, SCGI, Split Clients, UWSGI.
  .
  OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, GeoIP, Gunzip,
- Gzip, Gzip Precompression, Headers, Image Filter, Index, Log, Real IP, Spdy,
+ Gzip, Gzip Precompression, Headers, Image Filter, Index, Log, Real IP,
  SSI, SSL, Stream, Stub Status, Substitution, Thread Pool, Upstream, User ID,
  XSLT.
  .
@@ -233,8 +233,8 @@ Description: nginx web/proxy server (extended version)
  Referer, Rewrite, SCGI, Split Clients, UWSGI.
  .
  OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, FLV, GeoIP,
- Gunzip, Gzip, Gzip Precompression, Headers, Image Filter, Index, Log, MP4,
- Embedded Perl, Random Index, Real IP, Secure Link, Spdy, SSI, SSL, Stream,
+ Gunzip, Gzip, Gzip Precompression, Headers, Image Filter, Index, Log,
+ MP4, Embedded Perl, Random Index, Real IP, Secure Link, SSI, SSL, Stream,
  Stub Status, Substitution, Thread Pool, Upstream, User ID, XSLT.
  .
  MAIL MODULES: Mail Core, Auth HTTP, Proxy, SSL, IMAP, POP3, SMTP.

@@ -1,3 +1,9 @@
+nginx (1.9.12-0ubuntu0.1~aroth~ppa1) wily; urgency=medium
+
+  * New upstream release 1.9.12
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 27 Feb 2016 09:14:24 +0100
+
 nginx (1.9.11-0ubuntu2.1~aroth~ppa1) wily; urgency=medium
 
   * new upstream release 1.9.11

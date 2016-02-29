@@ -1,3 +1,9 @@
+nginx (1.9.12-0ubuntu0.2~aroth~ppa1) wily; urgency=medium
+
+  * restore http2 module
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Mon, 29 Feb 2016 07:20:15 +0100
+
 nginx (1.9.12-0ubuntu0.1~aroth~ppa1) wily; urgency=medium
 
   * New upstream release 1.9.12

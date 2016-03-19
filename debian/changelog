@@ -1,3 +1,18 @@
+nginx (1.9.12-0ubuntu1.1~aroth~ppa1) wily; urgency=medium
+
+  * take over latest ubuntu changes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 19 Mar 2016 17:18:41 +0100
+
+nginx (1.9.12-0ubuntu1) xenial; urgency=medium
+
+  * New upstream release (1.9.12) - full changelog available at upstream
+    website - http://nginx.org/en/CHANGES  (LP: #1549347)
+  * All Ubuntu specific changes from 1.9.11-0ubuntu1 and -0ubuntu2 remain
+    included in this upload.
+
+ -- Thomas Ward <teward@ubuntu.com>  Wed, 24 Feb 2016 10:26:31 -0500
+
 nginx (1.9.12-0ubuntu0.2~aroth~ppa1) wily; urgency=medium
 
   * restore http2 module

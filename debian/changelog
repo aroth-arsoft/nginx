@@ -1,3 +1,19 @@
+nginx (1.9.13-0ubuntu1.1~aroth~ppa1) xenial; urgency=medium
+
+  * take over ubuntu changes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 02 Apr 2016 08:32:26 +0200
+
+nginx (1.9.13-0ubuntu1) xenial-proposed; urgency=medium
+
+  * New upstream release (1.9.13) - full changelog available at upstream
+    website - http://nginx.org/en/CHANGES (LP: #1563393)
+  * All Ubuntu specific changes from 1.9.12-0ubuntu1 remain included in
+    this upload.
+  * debian/patches/ubuntu-branding.patch: Refresh Ubuntu Branding patch.
+
+ -- Thomas Ward <teward@ubuntu.com>  Tue, 29 Mar 2016 18:47:36 -0400
+
 nginx (1.9.12-0ubuntu1.1~aroth~ppa1) wily; urgency=medium
 
   * take over latest ubuntu changes

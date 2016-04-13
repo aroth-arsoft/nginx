@@ -102,7 +102,7 @@ Description: nginx web/proxy server (core version)
  Referer, Rewrite, SCGI, Split Clients, UWSGI.
  .
  OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, GeoIP, Gunzip,
- Gzip, Gzip Precompression, Headers, Image Filter, Index, Log, Real IP,
+ Gzip, Gzip Precompression, Headers, HTTP/2, Image Filter, Index, Log, Real IP,
  SSI, SSL, Stream, Stub Status, Substitution, Thread Pool, Upstream, User ID,
  XSLT.
  .
@@ -146,7 +146,7 @@ Description: nginx web/proxy server (standard version)
  Referer, Rewrite, SCGI, Split Clients, UWSGI.
  .
  OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, GeoIP, Gunzip,
- Gzip, Gzip Precompression, Headers, Image Filter, Index, Log, Real IP,
+ Gzip, Gzip Precompression, Headers, HTTP/2, Image Filter, Index, Log, Real IP,
  SSI, SSL, Stream, Stub Status, Substitution, Thread Pool, Upstream, User ID,
  XSLT.
  .
@@ -233,7 +233,7 @@ Description: nginx web/proxy server (extended version)
  Referer, Rewrite, SCGI, Split Clients, UWSGI.
  .
  OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, FLV, GeoIP,
- Gunzip, Gzip, Gzip Precompression, Headers, Image Filter, Index, Log,
+ Gunzip, Gzip, Gzip Precompression, Headers, HTTP/2, Image Filter, Index, Log,
  MP4, Embedded Perl, Random Index, Real IP, Secure Link, SSI, SSL, Stream,
  Stub Status, Substitution, Thread Pool, Upstream, User ID, XSLT.
  .

@@ -1,3 +1,24 @@
+nginx (1.9.14-0ubuntu1.1~aroth~ppa1) xenial; urgency=medium
+
+  * take over ubuntu changes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 13 Apr 2016 08:52:03 +0200
+
+nginx (1.9.14-0ubuntu1) xenial-proposed; urgency=medium
+
+  * New upstream release (1.9.14) - full changelog available at upstream
+    website - htp://nginx.org/en/CHANGES (LP: #1566392)
+  * All Ubuntu specific changes from 1.9.13-0ubuntu1, except noted below,
+    remain included in this upload.
+  * Remaining changes:
+    * Enable HTTP/2 module for nginx-full, nginx-extras, and nginx-core
+      (LP: #1565043)
+      - debian/rules: Enable HTTP/2 module building in flavor rules
+      - debian/control: Add HTTP/2 module to package descriptions.
+    * debian/patches/ubuntu-branding.patch: Refresh Ubuntu Branding patch.
+
+ -- Thomas Ward <teward@ubuntu.com>  Fri, 01 Apr 2016 14:23:47 -0400
+
 nginx (1.9.13-0ubuntu1.1~aroth~ppa1) xenial; urgency=medium
 
   * take over ubuntu changes

@@ -1,3 +1,9 @@
+nginx (1.9.15-0ubuntu1.1~aroth~ppa1) xenial; urgency=medium
+
+  * new upstream version 1.9.15
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Thu, 21 Apr 2016 07:54:14 +0200
+
 nginx (1.9.14-0ubuntu1.1~aroth~ppa1) xenial; urgency=medium
 
   * take over ubuntu changes

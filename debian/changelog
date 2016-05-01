@@ -1,3 +1,9 @@
+nginx (1.10.0-0ubuntu2~aroth1) UNRELEASED; urgency=medium
+
+  * fixed version numbers
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 01 May 2016 08:04:17 +0200
+
 nginx (1.10.0-0ubuntu0.2~aroth1) xenial; urgency=medium
 
   * take over latest ubuntu version

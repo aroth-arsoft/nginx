@@ -1,3 +1,21 @@
+nginx (1.10.1-0ubuntu1.1~aroth1) xenial; urgency=medium
+
+  * backport latest fixes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Thu, 02 Jun 2016 06:56:51 +0200
+
+nginx (1.10.1-0ubuntu1) yakkety; urgency=medium
+
+  * New upstream release (1.10.1) - full changelog available at upstream
+    website - http://nginx.org/en/CHANGES-1.10.
+  * Update done to address the following security issues:
+    - [CVE-2016-4450] NULL pointer dereference while writing client
+      request body. (LP: #1587577)
+  * Additional changes:
+    * debian/patches/ubuntu-branding.patch: Refreshed Ubuntu Branding patch.
+
+ -- Thomas Ward <teward@ubuntu.com>  Tue, 31 May 2016 19:09:33 -0400
+
 nginx (1.10.0-0ubuntu2~aroth1) UNRELEASED; urgency=medium
 
   * fixed version numbers

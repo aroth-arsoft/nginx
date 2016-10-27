@@ -1,6 +1,7 @@
 nginx (1.10.1-0ubuntu1.2~aroth1) yakkety; urgency=medium
 
   * backport latest changes from Ubuntu
+  * add latest enhancements for spnego-http-auth-nginx-module
 
  -- Andreas Roth <aroth@arsoft-online.com>  Thu, 27 Oct 2016 06:46:44 +0200
 

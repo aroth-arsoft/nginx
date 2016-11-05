@@ -1,8 +1,54 @@
+nginx (1.10.2-0ubuntu0.2~aroth1) yakkety; urgency=medium
+
+  * build with latest ubuntu fixes
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 05 Nov 2016 18:06:39 +0100
+
 nginx (1.10.2-0ubuntu0.1~aroth1) yakkety; urgency=medium
 
   * use latest stable version 1.10.2
 
  -- Andreas Roth <aroth@arsoft-online.com>  Thu, 27 Oct 2016 06:57:45 +0200
+
+nginx (1.10.1-0ubuntu5) zesty; urgency=medium
+
+  * debian/nginx-common.config:
+    - Fix the return code so the script does not exit during version
+      string comparisons.
+    - Also update the version string to compare with (for zesty only)
+
+ -- Thomas Ward <teward@ubuntu.com>  Thu, 27 Oct 2016 10:48:45 -0400
+
+nginx (1.10.1-0ubuntu4) zesty; urgency=medium
+
+  * debian/nginx-common.config:
+    - Fix an issue with the incorrect version numbers being compared
+      during configuration; this was something I missed when reviewing
+      the package for uploading previously. (LP: #1637058)
+
+ -- Thomas Ward <teward@ubuntu.com>  Thu, 27 Oct 2016 08:45:40 -0400
+
+nginx (1.10.1-0ubuntu3) zesty; urgency=medium
+
+  [ Christos Trochalakis ]
+  * debian/nginx-common.postinst:
+    + Secure log file handling (owner & permissions) against privilege
+      escalation attacks. /var/log/nginx is now owned by root:adm.
+      Thanks Dawid Golunski (http://legalhackers.com) for the report.
+      Changing /var/log/nginx permissions effectively reopens #701112,
+      since log files can be world-readable. This is a trade-off until
+      a better log opening solution is implemented upstream (trac:376).
+  * debian/control:
+    Don't allow building against liblua5.1-0-dev on architectures
+    that libluajit is available.
+
+ -- Thomas Ward <teward@ubuntu.com>  Tue, 25 Oct 2016 17:03:54 -0400
+
+nginx (1.10.1-0ubuntu2) zesty; urgency=medium
+
+  * No-change rebuild for perl 5.24 transition
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Mon, 24 Oct 2016 10:36:19 +0100
 
 nginx (1.10.1-0ubuntu1.2~aroth1) yakkety; urgency=medium
 

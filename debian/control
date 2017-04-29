@@ -107,6 +107,7 @@ Description: nginx web/proxy server (standard version)
 Package: nginx-full
 Architecture: any
 Depends: libnginx-mod-http-auth-pam (= ${binary:Version}),
+         libnginx-mod-http-auth-spnego (= ${binary:Version}),
          libnginx-mod-http-dav-ext (= ${binary:Version}),
          libnginx-mod-http-echo (= ${binary:Version}),
          libnginx-mod-http-geoip (= ${binary:Version}),
@@ -178,6 +179,7 @@ Package: nginx-extras
 Architecture: any
 Priority: extra
 Depends: libnginx-mod-http-auth-pam (= ${binary:Version}),
+         libnginx-mod-http-auth-spnego (= ${binary:Version}),
          libnginx-mod-http-cache-purge (= ${binary:Version}),
          libnginx-mod-http-dav-ext (= ${binary:Version}),
          libnginx-mod-http-echo (= ${binary:Version}),
@@ -418,3 +420,11 @@ Description: WebDAV missing commands support for Nginx
  WebDAV support.
  .
  WebDAV Ext provides the missing PROPFIND & OPTIONS methods.
+
+Package: libnginx-mod-http-auth-spnego
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: SPNEGO authentication module for Nginx
+ The nginx_http_auth_spnego module adds SPNEGO support.
+ .
+ It currently supports only Kerberos authentication via GSSAPI.

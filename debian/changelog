@@ -1,3 +1,9 @@
+nginx (1.12.2-0ubuntu0.3) artful; urgency=medium
+
+  * another attempt
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 22 Nov 2017 20:19:57 +0100
+
 nginx (1.12.2-0ubuntu0.2) artful; urgency=medium
 
   * use version 2.255 branch of ngx_upload_module

@@ -20,6 +20,7 @@ DYN_MODS := \
 	http-ndk \
 	http-perl \
 	http-subs-filter \
+	http-upload \
 	http-uploadprogress \
 	http-upstream-fair \
 	http-xslt-filter \
@@ -117,7 +118,8 @@ full_configure_flags := \
 			--add-dynamic-module=$(MODULESDIR)/nginx-echo \
 			--add-dynamic-module=$(MODULESDIR)/nginx-upstream-fair \
 			--add-dynamic-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
-			--add-dynamic-module=$(MODULESDIR)/spnego-http-auth-nginx-module
+			--add-dynamic-module=$(MODULESDIR)/spnego-http-auth-nginx-module \
+			--add-dynamic-module=$(MODULESDIR)/nginx-upload
 
 extras_configure_flags := \
 			$(common_configure_flags) \
@@ -150,7 +152,8 @@ extras_configure_flags := \
 			--add-dynamic-module=$(MODULESDIR)/nginx-upload-progress \
 			--add-dynamic-module=$(MODULESDIR)/nginx-upstream-fair \
 			--add-dynamic-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
-			--add-dynamic-module=$(MODULESDIR)/spnego-http-auth-nginx-module
+			--add-dynamic-module=$(MODULESDIR)/spnego-http-auth-nginx-module \
+			--add-dynamic-module=$(MODULESDIR)/nginx-upload
 
 %:
 	dh $@ --with systemd

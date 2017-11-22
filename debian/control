@@ -428,3 +428,10 @@ Description: SPNEGO authentication module for Nginx
  The nginx_http_auth_spnego module adds SPNEGO support.
  .
  It currently supports only Kerberos authentication via GSSAPI.
+
+Package: libnginx-mod-http-upload
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Upload module for Nginx
+ The nginx_http_upload module allows to store uploaded files in a configured
+ directory.

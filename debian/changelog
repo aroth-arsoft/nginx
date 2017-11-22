@@ -1,3 +1,10 @@
+nginx (1.12.2-0ubuntu0.1) artful; urgency=medium
+
+  * new upstream version 1.12.2
+  * add ngx_upload_module
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 22 Nov 2017 18:45:20 +0100
+
 nginx (1.12.1-0ubuntu2.2) artful; urgency=medium
 
   * restore mod-http-auth-spnego.conf

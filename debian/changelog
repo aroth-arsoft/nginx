@@ -1,3 +1,9 @@
+nginx (1.12.2-0ubuntu0.5) artful; urgency=medium
+
+  * fixed missing exec perm
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 22 Nov 2017 20:29:47 +0100
+
 nginx (1.12.2-0ubuntu0.4) artful; urgency=medium
 
   * use config file for dynamic module for ngx_upload_module

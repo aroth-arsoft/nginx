@@ -68,5 +68,5 @@ README for Modules versions
   Version: 864c8c15babd34d15f1ee9c5a0dedf2bcf60d0b8 (2016-11-11 07:48:36)
 
  nginx-upload
-  Homepage: https://github.com/vkholodkov/nginx-upload-module/tree/2.2
-  Version: 2.2 (aba1e3f34c754551f4f49e572bc86863d535609d)
+  Homepage: https://github.com/vkholodkov/nginx-upload-module/tree/2.255
+  Version: 2.255 (70bee48f1811eecd255ed094ce9f0fb560c390c3)

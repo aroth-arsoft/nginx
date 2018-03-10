@@ -1,3 +1,15 @@
+nginx (1.13.9-0.1ubuntu3) artful; urgency=medium
+
+  * fix script permissions
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 10 Mar 2018 13:37:31 +0100
+
+nginx (1.13.9-0.1ubuntu2) artful; urgency=medium
+
+  * require libkrb5-dev
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 10 Mar 2018 12:49:13 +0100
+
 nginx (1.13.9-0.1ubuntu1) artful; urgency=medium
 
   * use latest version of nginx

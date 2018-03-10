@@ -1,3 +1,10 @@
+nginx (1.13.9-0.1ubuntu1) artful; urgency=medium
+
+  * use latest version of nginx
+  * integrate changes from ubuntu nginx version 1.13.6
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 10 Mar 2018 12:21:24 +0100
+
 nginx (1.13.6-2ubuntu2) bionic; urgency=high
 
   * No change rebuild against openssl1.1.

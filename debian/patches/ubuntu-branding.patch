@@ -11,8 +11,8 @@ Last-Update: 2017-12-12
 +++ b/src/core/nginx.h
 @@ -11,7 +11,7 @@
  
- #define nginx_version      1013006
- #define NGINX_VERSION      "1.13.6"
+ #define nginx_version      1013009
+ #define NGINX_VERSION      "1.13.9"
 -#define NGINX_VER          "nginx/" NGINX_VERSION
 +#define NGINX_VER          "nginx/" NGINX_VERSION " (Ubuntu)"
  

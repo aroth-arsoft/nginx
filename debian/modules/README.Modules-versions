@@ -23,9 +23,9 @@ README for Modules versions
 
  nginx-lua
   Homepage: https://github.com/openresty/lua-nginx-module
-  Version: v0.10.7
+  Version: v0.10.10
   Patch: openssl-1.1.0.patch
-  Patch: build-nginx-1.11.11.patch
+  Patch: discover-luajit-2.1.patch
 
  nginx-upstream-fair
   Homepage: https://github.com/gnosek/nginx-upstream-fair
@@ -47,6 +47,7 @@ README for Modules versions
   Homepage: https://github.com/FRiCKLE/ngx_cache_purge/
   Version: 2.3
   Patch: dynamic-module.patch
+  Patch: segfault-1.11.6.patch
 
  nginx-dav-ext-module
   Homepage: https://github.com/arut/nginx-dav-ext-module
@@ -62,11 +63,12 @@ README for Modules versions
   Version: v0.6.4
   Patch: dynamic-module.patch
 
+ nginx-rtmp
+  Homepage: https://github.com/arut/nginx-rtmp-module
+    rm -r debian/modules/nginx-rtmp-module/test
+  Version: v1.1.11
+
  spnego-http-auth-nginx-module
   Homepage: https://github.com/aroth-arsoft/spnego-http-auth-nginx-module
   Original: https://github.com/stnoonan/spnego-http-auth-nginx-module
   Version: 864c8c15babd34d15f1ee9c5a0dedf2bcf60d0b8 (2016-11-11 07:48:36)
-
- nginx-upload
-  Homepage: https://github.com/vkholodkov/nginx-upload-module/tree/2.255
-  Version: 2.255 (70bee48f1811eecd255ed094ce9f0fb560c390c3)

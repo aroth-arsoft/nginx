@@ -1,3 +1,116 @@
+nginx (1.13.6-2ubuntu2) bionic; urgency=high
+
+  * No change rebuild against openssl1.1.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 05 Feb 2018 16:51:17 +0000
+
+nginx (1.13.6-2ubuntu1) bionic; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - debian/patches/ubuntu-branding.patch: add Ubuntu branding (refreshed)
+    - d/{control,rules,nginx-core.*}: add new binary package for main,
+      nginx-core, which contains only source-tarball-included modules
+      and no third-party modules.
+    - debian/tests/control: add nginx-core test.
+    - debian/apport/source_nginx.py: Add apport hooks for additional bug
+      information gathering.
+    - debian/nginx-common.install: Add install rule for apport hooks.
+    - debian/rules: Alter build flags for cflags and ldflags to fix known
+      fPIE / fPIC compilation issues (see nginx PPA bug for more details
+      and information, LP: #1657596)
+    - debian/patches/0002-Make-sure-signature-stays-the-same-in-
+      all-nginx-buil.patch:  Refreshed patch - Merge-o-Matic introduced some
+      fuzz which caused issues.
+
+ -- Thomas Ward <teward@ubuntu.com>  Tue, 12 Dec 2017 12:15:30 -0500
+
+nginx (1.13.6-2) unstable; urgency=medium
+
+  * rtmp: Ship docs & examples (Closes: #878368)
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Fri, 13 Oct 2017 12:59:28 +0300
+
+nginx (1.13.6-1) unstable; urgency=medium
+
+  * New upstream version
+  * Normalize module paths in packaging repository
+  * Bump Standards-Version, no changes needed
+  * Drop dh-systemd dependency since we depend on debhelper >= 10
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Thu, 12 Oct 2017 10:37:29 +0300
+
+nginx (1.13.5-1) unstable; urgency=medium
+
+  * New upstream version 1.13.5
+  * doc: Improve example WordPress configuration
+    Thanks to Larry Holish (Closes: #863343)
+  * Remove upstart conffile (Closes: #874319)
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 06 Sep 2017 10:10:24 +0300
+
+nginx (1.13.4-1) unstable; urgency=medium
+
+  * New upstream version 1.13.4
+  * nginx-lua:
+    + Add a simple lua autopkgtest
+    + Discover LuaJIT 2.1 (FTBFS) (Closes: #873319)
+    + Update to v0.10.10
+    + Update OpenSSL 1.1 patch
+    + Drop patch to build against Nginx 1.11.11, now included upstream
+  * tests: Fix race between reload and curl's http request
+  * Explicitly disable autoreconf (debhelper 10)
+  * Drop Upstart configuration
+  * Bump Standards to 4.1.0
+    + Switch all packages to Priority optional, extra is considered deprecated
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Tue, 29 Aug 2017 10:49:03 +0300
+
+nginx (1.13.3-1) unstable; urgency=high
+
+  * New upstream version 1.13.3.
+    Fixes CVE-2017-7529 (Closes: #868109)
+  * Drop gzip_disable "msie6" directive. (Closes: #867024)
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 12 Jul 2017 11:20:27 +0300
+
+nginx (1.13.2-1) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * New upstream version 1.13.2.
+  * Fix nginx-cache-purge segfaults (Closes: #866750)
+  * Merge ca translations.
+    Thanks to Alytidae (Closes: #865996)
+  * Merge es translations.
+    Thanks to Jonathan Bustillos (Closes: #855610)
+  * Merge pt translations.
+    Thanks to Rui Branco (Closes: #858741)
+  * Bump Standards to 4.0.0.
+    - Switch the copyright-format URL to https.
+
+  [ Nicolas Dandrimont ]
+  * Introduce libnginx-mod-rtmp (Closes: #843777)
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Mon, 03 Jul 2017 13:44:59 +0300
+
+nginx (1.13.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Tue, 20 Jun 2017 14:16:52 +0300
+
+nginx (1.13.1-1) experimental; urgency=medium
+
+  * New upstream version 1.13.1.
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 31 May 2017 11:41:59 +0300
+
+nginx (1.13.0-1) experimental; urgency=medium
+
+  * New upstream release.
+    We now target nginx mainline (1.13.x).
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 10 May 2017 11:40:38 +0300
+
 nginx (1.12.2-0ubuntu0.5) artful; urgency=medium
 
   * fixed missing exec perm

@@ -1,3 +1,53 @@
+nginx (1.13.11-0.1ubuntu0.1) bionic; urgency=medium
+
+  * new upstream version 1.13.11
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 10 Apr 2018 07:11:14 +0200
+
+nginx (1.13.10-1ubuntu1) bionic; urgency=medium
+
+  * Merge with Debian unstable. Remaining changes:
+    - debian/patches/ubuntu-branding.patch: add Ubuntu branding (refreshed)
+    - d/{control,rules,nginx-core.*}: add new binary package for main,
+      nginx-core, which contains only source-tarball-included modules
+      and no third-party modules.
+    - debian/tests/control: add nginx-core test.
+    - debian/apport/source_nginx.py: Add apport hooks for additional bug
+      information gathering.
+    - debian/nginx-common.install: Add install rule for apport hooks.
+  * Drop:
+    - debian/patches/0002-Make-sure-signature-stays-the-same-in-
+      all-nginx-buil.patch:  Refreshed patch - Merge-o-Matic introduced some
+      fuzz which caused issues.
+      [ Does not seem necessary ]
+    - d/control: drop mention of SSL Preread from nginx-full, nginx-extras
+      [ Previously undocumented ]
+    - d/gbp.conf: update for 1.12 release
+      [ Previously undocumented ]
+    - d/p/0003-define_gnu_source-on-other-glibc-based-platforms.patch:
+      Refresh patch.
+      [ Previously undocumented ]
+
+ -- Nishanth Aravamudan <nish.aravamudan@canonical.com>  Thu, 05 Apr 2018 15:43:49 -0700
+
+nginx (1.13.10-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 21 Mar 2018 16:16:22 +0200
+
+nginx (1.13.9-1) unstable; urgency=medium
+
+  [ Michael Lustfield ]
+  * Remove non-uploading users
+
+  [ Christos Trochalakis ]
+  * New upstream version 1.13.9
+  * Move packaging repository to salsa.debian.org
+  * Bump Standards-Version to 4.1.3, no changes needed
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 21 Feb 2018 11:24:53 +0200
+
 nginx (1.13.9-0.1ubuntu3) artful; urgency=medium
 
   * fix script permissions
@@ -16,6 +66,33 @@ nginx (1.13.9-0.1ubuntu1) artful; urgency=medium
   * integrate changes from ubuntu nginx version 1.13.6
 
  -- Andreas Roth <aroth@arsoft-online.com>  Sat, 10 Mar 2018 12:21:24 +0100
+
+nginx (1.13.8-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 27 Dec 2017 09:24:36 +0200
+
+nginx (1.13.7-1) unstable; urgency=medium
+
+  [ Christos Trochalakis ]
+  * New upstream version 1.13.7
+  * Bump Standards-Version, no changes needed
+  * debian/watch: switch to HTTPS for the upstream check
+
+  [ Mpampis Kostas ]
+  * Automate modules watch & upgrade process (Closes: #869499)
+
+  [ Christos Trochalakis ]
+  * Bits & pieces for ngxmod
+  * http-headers-more-filter: Upgrade to 0.33
+  * http-echo: Upgrade to 0.61
+  * http-lua: Upgrade to 0.10.11
+  * http-dav-ext: Upgrade to 0.1.0 (Closes: #878611)
+  * http-fancyindex: Upgrade to 0.4.2
+  * rtmp: Upgrade to 1.2.1 (Closes: #880718)
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Thu, 14 Dec 2017 11:04:36 +0200
 
 nginx (1.13.6-2ubuntu2) bionic; urgency=high
 

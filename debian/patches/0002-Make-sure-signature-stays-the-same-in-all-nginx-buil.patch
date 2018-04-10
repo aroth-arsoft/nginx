@@ -10,12 +10,14 @@ dyn modules are build from nginx-full, so in order to make
 them loadable in other flavors we need to make sure all the
 binaries share the same signature.
 ---
- configure |    4 ++++
+ configure | 4 ++++
  1 file changed, 4 insertions(+)
 
+diff --git a/configure b/configure
+index ceff15e..3816fa1 100755
 --- a/configure
 +++ b/configure
-@@ -58,6 +58,10 @@
+@@ -58,6 +58,10 @@ if [ "$NGX_PLATFORM" != win32 ]; then
      . auto/unix
  fi
  

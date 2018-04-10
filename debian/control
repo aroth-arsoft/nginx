@@ -3,9 +3,7 @@ Section: httpd
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Debian Nginx Maintainers <pkg-nginx-maintainers@lists.alioth.debian.org>
-Uploaders: Kartik Mistry <kartik@debian.org>,
-           Michael Lustfield <michael@lustfield.net>,
-           Christos Trochalakis <ctrochalakis@debian.org>
+Uploaders: Christos Trochalakis <ctrochalakis@debian.org>
 Build-Depends: debhelper (>= 10),
                po-debconf,
                dpkg-dev (>= 1.15.5),
@@ -25,10 +23,10 @@ Build-Depends: debhelper (>= 10),
                po-debconf,
                quilt,
                zlib1g-dev
-Standards-Version: 4.1.1
+Standards-Version: 4.1.3
 Homepage: http://nginx.net
-Vcs-Git: https://anonscm.debian.org/cgit/pkg-nginx/nginx.git
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-nginx/nginx.git
+Vcs-Git: https://salsa.debian.org/nginx-team/nginx.git
+Vcs-Browser: https://salsa.debian.org/nginx-team/nginx
 
 Package: nginx
 Architecture: all
@@ -137,8 +135,8 @@ Description: nginx web/proxy server (standard version)
  .
  OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, GeoIP, Gunzip,
  Gzip, Gzip Precompression, Headers, HTTP/2, Image Filter, Index, Log, Real IP,
- Slice, SSI, SSL, Stream, Stub Status, Substitution, Thread Pool, Upstream,
- User ID, XSLT.
+ Slice, SSI, SSL, Stream, SSL Preread, Stub Status, Substitution, Thread  Pool,
+ Upstream, User ID, XSLT.
  .
  MAIL MODULES: Mail Core, Auth HTTP, Proxy, SSL, IMAP, POP3, SMTP.
  .
@@ -215,7 +213,8 @@ Description: nginx web/proxy server (extended version)
  OPTIONAL HTTP MODULES: Addition, Auth Request, Charset, WebDAV, FLV, GeoIP,
  Gunzip, Gzip, Gzip Precompression, Headers, HTTP/2, Image Filter, Index, Log,
  MP4, Embedded Perl, Random Index, Real IP, Slice, Secure Link, SSI, SSL,
- Stream, Stub Status, Substitution, Thread Pool, Upstream, User ID, XSLT.
+ Stream, SSL Preread, Stub Status, Substitution, Thread Pool, Upstream,
+ User ID, XSLT.
  .
  MAIL MODULES: Mail Core, Auth HTTP, Proxy, SSL, IMAP, POP3, SMTP.
  .

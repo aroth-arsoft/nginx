@@ -70,4 +70,4 @@ Version: 1.2.1
 
 Module: spnego-http-auth-nginx-module
 Homepage: https://github.com/aroth-arsoft/spnego-http-auth-nginx-module
-Version: 864c8c15babd34d15f1ee9c5a0dedf2bcf60d0b8
+Version: a8564ed33b9c2b722cf9e558c03961d9adf18cc3

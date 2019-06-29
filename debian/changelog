@@ -1,3 +1,10 @@
+nginx (1.16.0-0ubuntu1.1) disco; urgency=medium
+
+  * new upstream version 1.16.0
+  * update ngx_http_auth_spnego_module.c to latest from stnoonan/master
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 29 Jun 2019 15:58:12 +0200
+
 nginx (1.16.0-0ubuntu1) eoan; urgency=medium
 
   * New upstream release (1.16.0) - full changelog available from

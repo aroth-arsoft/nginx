@@ -68,6 +68,10 @@ Homepage: https://github.com/arut/nginx-rtmp-module
 Files-Excluded: test
 Version: 1.2.1
 
+Module: http-geoip2
+Homepage: https://github.com/leev/ngx_http_geoip2_module
+Version: 3.2
+
 Module: spnego-http-auth-nginx-module
 Homepage: https://github.com/aroth-arsoft/spnego-http-auth-nginx-module
 Version: a8564ed33b9c2b722cf9e558c03961d9adf18cc3

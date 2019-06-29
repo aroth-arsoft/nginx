@@ -14,6 +14,7 @@ DYN_MODS := \
 	http-echo \
 	http-fancyindex \
 	http-geoip \
+        http-geoip2 \
 	http-headers-more-filter \
 	http-image-filter \
 	http-lua \

@@ -1,3 +1,9 @@
+nginx (1.16.0-0ubuntu1.2) disco; urgency=medium
+
+  * fixed missing geoip2 package
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 29 Jun 2019 16:28:37 +0200
+
 nginx (1.16.0-0ubuntu1.1) disco; urgency=medium
 
   * new upstream version 1.16.0

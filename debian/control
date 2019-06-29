@@ -13,6 +13,7 @@ Build-Depends: debhelper (>= 10),
                libhiredis-dev,
                liblua5.1-0-dev [!i386 !amd64 !kfreebsd-i386 !armel !armhf !powerpc !powerpcspe !mips !mipsel],
                libluajit-5.1-dev [i386 amd64 kfreebsd-i386 armel armhf powerpc powerpcspe mips mipsel],
+               libmaxminddb-dev,
                libmhash-dev,
                libpam0g-dev,
                libkrb5-dev,
@@ -112,6 +113,7 @@ Depends: libnginx-mod-http-auth-pam (= ${binary:Version}),
          libnginx-mod-http-subs-filter (= ${binary:Version}),
          libnginx-mod-http-upstream-fair (= ${binary:Version}),
          libnginx-mod-http-xslt-filter (= ${binary:Version}),
+         libnginx-mod-http-geoip2 (= ${binary:Version}),
          libnginx-mod-mail (= ${binary:Version}),
          libnginx-mod-stream (= ${binary:Version}),
          nginx-common (= ${source:Version}),
@@ -142,8 +144,8 @@ Description: nginx web/proxy server (standard version)
  .
  MAIL MODULES: Mail Core, Auth HTTP, Proxy, SSL, IMAP, POP3, SMTP.
  .
- THIRD PARTY MODULES: Auth PAM, DAV Ext, Echo, HTTP Substitutions, Upstream
- Fair Queue.
+ THIRD PARTY MODULES: Auth PAM, DAV Ext, Echo, GeoIP2, HTTP Substitutions,
+ Upstream Fair Queue.
 
 Package: nginx-light
 Architecture: any
@@ -182,6 +184,7 @@ Depends: libnginx-mod-http-auth-pam (= ${binary:Version}),
          libnginx-mod-http-echo (= ${binary:Version}),
          libnginx-mod-http-fancyindex (= ${binary:Version}),
          libnginx-mod-http-geoip (= ${binary:Version}),
+         libnginx-mod-http-geoip2 (= ${binary:Version}),
          libnginx-mod-http-headers-more-filter (= ${binary:Version}),
          libnginx-mod-http-image-filter (= ${binary:Version}),
          libnginx-mod-http-lua (= ${binary:Version}),
@@ -223,8 +226,8 @@ Description: nginx web/proxy server (extended version)
  MAIL MODULES: Mail Core, Auth HTTP, Proxy, SSL, IMAP, POP3, SMTP.
  .
  THIRD PARTY MODULES: Auth PAM, Cache Purge, DAV Ext, Echo, Fancy Index,
- Headers More, Embedded Lua, HTTP Substitutions, Nchan, Upload Progress,
- Upstream Fair Queue.
+ Headers More, Embedded Lua, GeoIP2, HTTP Substitutions, Nchan, Upload
+ Progress, Upstream Fair Queue.
 
 Package: libnginx-mod-http-geoip
 Architecture: any
@@ -433,6 +436,14 @@ Description: RTMP support for Nginx
   - Stream relay support via a push or pull model;
   - Integrated stream recording;
   - and more.
+
+Package: libnginx-mod-http-geoip2
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, libmaxminddb0
+Description: GeoIP HTTP module for Nginx
+ The ngx_http_geoip2 module is a third-party plugin which creates variables 
+ with values from the maxmind geoip2 databases based on the client IP 
+ (default) or from a specific variable (supports both IPv4 and IPv6).
 
 Package: libnginx-mod-http-auth-spnego
 Architecture: any

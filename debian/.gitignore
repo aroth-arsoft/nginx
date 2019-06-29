@@ -24,6 +24,7 @@
 /libnginx-mod-http-echo
 /libnginx-mod-http-fancyindex
 /libnginx-mod-http-geoip
+/libnginx-mod-http-geoip2
 /libnginx-mod-http-headers-more-filter
 /libnginx-mod-http-image-filter
 /libnginx-mod-http-lua

@@ -1,3 +1,35 @@
+nginx (1.16.1-0ubuntu2.1) disco; urgency=medium
+
+  * backport latest release
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Mon, 19 Aug 2019 07:04:37 +0200
+
+nginx (1.16.1-0ubuntu2) eoan; urgency=medium
+
+  * d/conf/sites-available/default: Update PHP referred to in the 
+    example in the default configuration to PHP 7.2.
+    (LP: #1831748)
+
+ -- Thomas Ward <teward@ubuntu.com>  Thu, 15 Aug 2019 12:01:39 -0400
+
+nginx (1.16.1-0ubuntu1) eoan; urgency=medium
+
+  * New upstream release (1.16.1) - full changelog available from
+    http://nginx.org/en/CHANGES-1.16
+  * This patch contains security patches only.
+  * Security content in this version:
+    - When using HTTP/2 a client might cause excessive memory consumption 
+      and CPU usage (CVE-2019-9511. CVE-2019-9513, CVE-2019-9516)
+
+ -- Thomas Ward <teward@ubuntu.com>  Tue, 13 Aug 2019 13:08:03 -0400
+
+nginx (1.16.0-0ubuntu2) eoan; urgency=medium
+
+  * d/patches/nginx-fix-pidfile.patch: Fix NGINX PIDfile handling to avoid
+    SystemD race condition - thanks to Tj for the patch.  (LP: #1581864)
+
+ -- Thomas Ward <teward@ubuntu.com>  Tue, 04 Jun 2019 11:43:30 -0400
+
 nginx (1.16.0-0ubuntu1.2) disco; urgency=medium
 
   * fixed missing geoip2 package

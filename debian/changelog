@@ -1,3 +1,9 @@
+nginx (1.16.1-0ubuntu2.2) disco; urgency=medium
+
+  * fix nginx-extras.install permission
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 20 Aug 2019 06:44:05 +0200
+
 nginx (1.16.1-0ubuntu2.1) disco; urgency=medium
 
   * backport latest release

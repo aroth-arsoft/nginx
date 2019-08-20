@@ -16,7 +16,6 @@
 /nginx-passenger-dbg
 /nginx-core/
 /nginx-core-dbg/
-/nginx-extras.install
 /libnginx-mod-http-auth-pam
 /libnginx-mod-http-auth-spnego
 /libnginx-mod-http-cache-purge

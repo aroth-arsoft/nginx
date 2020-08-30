@@ -5,7 +5,7 @@ export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 debian_cflags:=$(shell dpkg-buildflags --get CFLAGS) -fPIC $(shell dpkg-buildflags --get CPPFLAGS)
 debian_ldflags:=$(shell dpkg-buildflags --get LDFLAGS) -fPIC
 
-FLAVOURS := core full light extras
+FLAVOURS := core light extras
 DYN_MODS := \
 	http-auth-pam \
 	http-auth-spnego \
@@ -27,7 +27,9 @@ DYN_MODS := \
 	mail \
 	nchan \
 	rtmp \
-	stream
+	stream \
+	stream-geoip \
+	stream-geoip2
 
 MODULESDIR = $(CURDIR)/debian/modules
 BASEDIR = $(CURDIR)
@@ -62,8 +64,8 @@ common_configure_flags := \
 			--http-proxy-temp-path=/var/lib/nginx/proxy \
 			--http-scgi-temp-path=/var/lib/nginx/scgi \
 			--http-uwsgi-temp-path=/var/lib/nginx/uwsgi \
-			--with-debug \
 			--with-compat \
+			--with-debug \
 			--with-pcre-jit \
 			--with-http_ssl_module \
 			--with-http_stub_status_module \
@@ -84,43 +86,14 @@ light_configure_flags := \
 			--without-http_memcached_module \
 			--without-http_referer_module \
 			--without-http_split_clients_module \
-			--without-http_userid_module \
-			--add-dynamic-module=$(MODULESDIR)/http-echo
+			--without-http_userid_module
 
 core_configure_flags := \
-                        $(common_configure_flags) \
-                        --with-http_addition_module \
-                        --with-http_gunzip_module \
-                        --with-http_gzip_static_module \
-                        --with-http_image_filter_module=dynamic \
-                        --with-http_sub_module \
-                        --with-http_xslt_module=dynamic \
-                        --with-stream=dynamic \
-                        --with-stream_ssl_module \
-                        --with-mail=dynamic \
-                        --with-mail_ssl_module
-
-full_configure_flags := \
 			$(common_configure_flags) \
 			--with-http_addition_module \
-			--with-http_geoip_module=dynamic \
 			--with-http_gunzip_module \
 			--with-http_gzip_static_module \
-			--with-http_image_filter_module=dynamic \
 			--with-http_sub_module \
-			--with-http_xslt_module=dynamic \
-			--with-stream=dynamic \
-			--with-stream_ssl_module \
-			--with-stream_ssl_preread_module \
-			--with-mail=dynamic \
-			--with-mail_ssl_module \
-			--add-dynamic-module=$(MODULESDIR)/http-auth-pam \
-			--add-dynamic-module=$(MODULESDIR)/http-dav-ext \
-			--add-dynamic-module=$(MODULESDIR)/http-echo \
-			--add-dynamic-module=$(MODULESDIR)/http-upstream-fair \
-			--add-dynamic-module=$(MODULESDIR)/http-subs-filter \
-			--add-dynamic-module=$(MODULESDIR)/http-geoip2 \
-            --add-dynamic-module=$(MODULESDIR)/spnego-http-auth-nginx-module
 
 extras_configure_flags := \
 			$(common_configure_flags) \
@@ -139,6 +112,7 @@ extras_configure_flags := \
 			--with-mail=dynamic \
 			--with-mail_ssl_module \
 			--with-stream=dynamic \
+			--with-stream_geoip_module=dynamic \
 			--with-stream_ssl_module \
 			--with-stream_ssl_preread_module \
 			--add-dynamic-module=$(MODULESDIR)/http-headers-more-filter \
@@ -148,13 +122,13 @@ extras_configure_flags := \
 			--add-dynamic-module=$(MODULESDIR)/http-ndk \
 			--add-dynamic-module=$(MODULESDIR)/http-echo \
 			--add-dynamic-module=$(MODULESDIR)/http-fancyindex \
+			--add-dynamic-module=$(MODULESDIR)/http-geoip2 \
 			--add-dynamic-module=$(MODULESDIR)/nchan \
 			--add-dynamic-module=$(MODULESDIR)/http-lua \
 			--add-dynamic-module=$(MODULESDIR)/rtmp \
 			--add-dynamic-module=$(MODULESDIR)/http-uploadprogress \
 			--add-dynamic-module=$(MODULESDIR)/http-upstream-fair \
 			--add-dynamic-module=$(MODULESDIR)/http-subs-filter \
-			--add-dynamic-module=$(MODULESDIR)/http-geoip2 \
             --add-dynamic-module=$(MODULESDIR)/spnego-http-auth-nginx-module
 
 %:
@@ -171,10 +145,10 @@ override_dh_install:
 	DH_AUTOSCRIPTDIR=$(CURDIR)/debian/autoscripts debian/dh_nginx
 
 override_dh_installinit:
-	dh_installinit --no-restart-on-upgrade --no-start --name=nginx
+	dh_installinit --no-stop-on-upgrade --no-start --name=nginx
 
-override_dh_systemd_enable:
-	dh_systemd_enable --name=nginx
+override_dh_installsystemd:
+	dh_installsystemd --name=nginx
 
 override_dh_installlogrotate:
 	dh_installlogrotate --package nginx-common --name=nginx

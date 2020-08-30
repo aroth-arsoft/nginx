@@ -11,7 +11,7 @@ Nginx Fancy Index module
 The Fancy Index module makes possible the generation of file listings, like
 the built-in `autoindex <http://wiki.nginx.org/NginxHttpAutoindexModule>`__
 module does, but adding a touch of style. This is possible because the module
-module allows a certain degree of customization of the generated content:
+allows a certain degree of customization of the generated content:
 
 * Custom headers. Either local or stored remotely.
 * Custom footers. Either local or stored remotely.
@@ -39,7 +39,7 @@ Alternatively, add extras repository first (for future updates) and install the 
 
     yum install nginx-module-fancyindex
     
-Then load the module in `/etc/nginx/nginx.conf` using
+Then load the module in `/etc/nginx/nginx.conf` using::
 
    load_module "modules/ngx_http_fancyindex_module.so";
 
@@ -51,8 +51,8 @@ series onwards will work.  Note that the modules *might* compile with
 versions in the 0.6 series by applying ``nginx-0.6-support.patch``, but this
 is unsupported (YMMV).
 
-In order to use the fancyindex_header_ and fancyindex_footer_ directives
-you will also need the `ngx_http_addition_module <http://nginx.org/en/docs/http/ngx_http_addition_module.html>`_
+In order to use the ``fancyindex_header_`` and ``fancyindex_footer_`` directives
+you will also need the `ngx_http_addition_module <https://nginx.org/en/docs/http/ngx_http_addition_module.html>`_
 built into Nginx.
 
 
@@ -78,7 +78,8 @@ Building
 
    Since version 0.4.0, the module can also be built as a
    `dynamic module <https://www.nginx.com/resources/wiki/extending/converting/>`_,
-   using ``--add-dynamic-module=…`` instead and ``load_module "modules/ngx_http_fancyindex_module.so";`
+   using ``--add-dynamic-module=…`` instead and
+   ``load_module "modules/ngx_http_fancyindex_module.so";``
    in the configuration file
 
 4. Build and install the software::
@@ -114,8 +115,14 @@ achieved using the module:
   `@TheInsomniac <https://github.com/TheInsomniac>`__. Uses custom header and
   footer.
 * `Theme <https://github.com/Naereen/Nginx-Fancyindex-Theme>`__ by
-  `Naereen <https://github.com/Naereen/>`__. Uses custom header and footer, the
+  `@Naereen <https://github.com/Naereen/>`__. Uses custom header and footer, the
   header includes search field to filter by filename using JavaScript.
+* `Theme <https://github.com/fraoustin/Nginx-Fancyindex-Theme>`__ by
+  `@fraoustin <https://github.com/fraoustin>`__. Responsive theme using
+  Material Design elements.
+* `Theme <https://github.com/alehaa/nginx-fancyindex-flat-theme>`__ by
+  `@alehaa <https://github.com/alehaa>`__. Simple, flat theme based on
+  Bootstrap 4 and FontAwesome.
 
 
 Directives
@@ -210,7 +217,7 @@ fancyindex_header
    into Nginx.
 
 fancyindex_show_path
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 :Syntax: *fancyindex_show_path* [*on* | *off*]
 :Default: fancyindex_show_path on
 :Context: http, server, location
@@ -240,6 +247,14 @@ fancyindex_hide_symlinks
 :Description:
   When enabled, generated listings will not contain symbolic links.
 
+fancyindex_hide_parent_dir
+~~~~~~~~~~~~~~~~~~~~~~~~
+:Syntax: *fancyindex_hide_parent_dir* [*on* | *off*]
+:Default: fancyindex_hide_parent_dir off
+:Context: http, server, location
+:Description:
+  When enabled, it will not show parent directory.
+
 fancyindex_localtime
 ~~~~~~~~~~~~~~~~~~~~
 :Syntax: *fancyindex_localtime* [*on* | *off*]
@@ -255,7 +270,7 @@ fancyindex_time_format
 :Context: http, server, location
 :Description:
   Format string used for timestamps. The format specifiers are a subset of
-  those supported by the `strftime <http://linux.die.net/man/3/strftime>`_
+  those supported by the `strftime <https://linux.die.net/man/3/strftime>`_
   function, and the behavior is locale-independent (for example, day and month
   names are always in English). The supported formats are:
 
@@ -288,6 +303,6 @@ fancyindex_time_format
   * ``%Y``: Year as a decimal number including the century.
 
 
-.. _nginx: http://nginx.net
+.. _nginx: https://nginx.org
 
 .. vim:ft=rst:spell:spelllang=en:

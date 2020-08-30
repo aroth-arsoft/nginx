@@ -1,7 +1,8 @@
-Description: Fix NGINX pidfile handling   
-Author: Tj <ubuntu@iam.tj>                  
+Description: Fix NGINX pidfile handling
+Author: Tj <ubuntu@iam.tj>
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/nginx/+bug/1581864
-Last-Update: 2019-06-04 
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=876365
+Last-Update: 2020-06-24
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 diff --git a/src/core/nginx.c b/src/core/nginx.c
